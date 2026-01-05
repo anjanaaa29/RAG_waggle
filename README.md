@@ -62,7 +62,7 @@ Final Answer shown to user
 
 ```bash
 pip install -r requirements.txt
-
+```
 ---
 ▶️ Run the Application Locally
 streamlit run app.py
@@ -72,5 +72,5 @@ streamlit run app.py
 Once deployed, the app will be available at:
 
 
-👉 [Working Link](https://ragwaggle-chatbot12345.streamlit.app/)
+👉 ](https://ragwaggle-chatbot12345.streamlit.app/)
 
