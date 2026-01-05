@@ -32,6 +32,7 @@ if st.session_state.answer:
 
     # Clear button BELOW answer
     if st.button("Clear"):
-        st.session_state.queston= ""
+        st.session_state.question= ""
         st.session_state.answer = ""
         st.rerun()
+
