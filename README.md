@@ -65,7 +65,7 @@ pip install -r requirements.txt
 ```
 ---
 ▶️ Run the Application Locally
-streamlit run app.py
+```streamlit run app.py```
 
 🌐 Streamlit Cloud Deployment
 
