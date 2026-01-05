@@ -9,21 +9,27 @@ st.title("🤖 MyWaggle FAQ Chatbot")
 
 st.write("Ask questions about MyWaggle FAQs")
 
-# Session state
+# Initialize session state
+if "question" not in st.session_state:
+    st.session_state.question = ""
+
 if "answer" not in st.session_state:
     st.session_state.answer = ""
 
-# Text input (Enter triggers rerun automatically)
-question = st.text_input("Your question:")
+# Text input (Enter triggers rerun)
+st.text_input("Your question:", key="question")
 
 # When user enters a question
-if question.strip():
+if st.session_state.question.strip():
     with st.spinner("Fetching answer..."):
-        chunks = retrieve_chunks(question)
+        chunks = retrieve_chunks(st.session_state.question)
         if not chunks:
             st.session_state.answer = "Sorry, no relevant FAQ found."
         else:
-            st.session_state.answer = generate_answer(question, chunks)
+            st.session_state.answer = generate_answer(
+                st.session_state.question,
+                chunks
+            )
 
 # Display answer
 if st.session_state.answer:
@@ -32,7 +38,6 @@ if st.session_state.answer:
 
     # Clear button BELOW answer
     if st.button("Clear"):
-        st.session_state.question= ""
-        st.session_state.answer = ""
+        del st.session_state["question"]
+        del st.session_state["answer"]
         st.rerun()
-
