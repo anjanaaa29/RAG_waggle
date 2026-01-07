@@ -5,12 +5,11 @@ import re
 INPUT_FILE = "data/faqs.txt"
 OUTPUT_FILE = "data/chunks.json"
 
-CHUNK_SIZE = 500   # characters
+CHUNK_SIZE = 500   
 CHUNK_OVERLAP = 50
 
 
 def clean_text(text):
-    # Remove extra spaces and newlines
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
 
@@ -37,7 +36,6 @@ def main():
     cleaned_text = clean_text(raw_text)
     chunks = chunk_text(cleaned_text, CHUNK_SIZE, CHUNK_OVERLAP)
 
-    # Save chunks as JSON
     chunk_data = [{"id": i, "text": chunk} for i, chunk in enumerate(chunks)]
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
@@ -49,3 +47,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
