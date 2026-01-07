@@ -6,7 +6,7 @@ from sentence_transformers import SentenceTransformer
 from groq import Groq
 from dotenv import load_dotenv
 
-# Load API key
+# groq API key
 load_dotenv()
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
 client_llm = Groq(api_key=GROQ_API_KEY)
@@ -19,7 +19,6 @@ index = faiss.read_index(INDEX_FILE)
 with open(TEXT_FILE, "r", encoding="utf-8") as f:
     texts = json.load(f)
 
-# Embedding model
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
 TOP_K = 5
@@ -69,5 +68,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
