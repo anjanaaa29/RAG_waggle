@@ -21,7 +21,6 @@ def scrape_page(url):
 
     soup = BeautifulSoup(response.text, "html.parser")
 
-    # Remove unwanted tags
     for tag in soup(["script", "style", "nav", "footer"]):
         tag.decompose()
 
@@ -54,3 +53,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
