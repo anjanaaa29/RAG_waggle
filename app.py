@@ -36,8 +36,9 @@ if st.session_state.answer:
     st.subheader("Answer")
     st.success(st.session_state.answer)
 
-    # Clear button BELOW answer
+    # Clear button
     if st.button("Clear"):
         del st.session_state["question"]
         del st.session_state["answer"]
         st.rerun()
+
